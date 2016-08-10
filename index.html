@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="comprarBitcoins"> 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>CRYPTFX</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/animate.min.css" rel="stylesheet"> 
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/lightbox.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <link id="css-preset" href="css/presets/preset1.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  
+  <script src="js/angular.js"></script>
+  <script src="js/angular-locale_pt-br.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+  <script src="js/angularfire.js"></script>
+  <script src="js/buy.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
+
+
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+  <![endif]-->
+  
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" href="images/favicon.ico">
+</head><!--/head-->
+
+<body ng-controller="precoCtrl">
+
+  <!--.preloader-->
+  <div class="preloader"> <i class="fa fa-circle-o-notch fa-spin"></i></div>
+  <!--/.preloader-->
+
+  <header id="home">
+    <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="item active" style="background-image: url(images/slider/1.jpg)">
+          <div class="caption">
+            <h1 class="animated fadeInLeftBig">Bem-vindo ao <span>{{app}}</span></h1>
+            <p class="animated fadeInRightBig">invista em algo que produz retornos tão elevados quanto os juros auferidos a partir de seu banco local.</p>
+            <a data-scroll class="btn btn-start animated fadeInUpBig" href="#about-us">Quer saber como?</a>
+          </div>
+        </div>
+        
+
+      <a id="tohash" href="#about-us"><i class="fa fa-angle-down"></i></a>
+
+    </div><!--/#home-slider-->
+    <div class="main-nav">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">
+            <h1 class="parallax">{{app}}</h1>
+          </a>                    
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">                 
+            <li class="scroll active"><a href="#home">Home</a></li>
+            <li class="scroll"><a href="#about-us">Sobre Nós</a></li>                     
+            <li class="scroll"><a href="#bitcoin">O que é Bitcoin?</a></li>
+            <li class="scroll"><a href="#plans">Nossos Planos</a></li>
+            <li class="scroll"><a href="#buy">Comprar Bitcoins</a></li>
+            <li class="scroll"><a href="#contact">Contato</a></li>
+            <li><a href="http://bo.crypt-fx.com" target="blank">Login</a></li>       
+          </ul>
+        </div>
+      </div>
+    </div><!--/#main-nav-->
+  </header><!--/#home-->
+  <section id="about-us" class="parallax">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <div class="about-info wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <h2>Sobre Nós</h2>
+            <p class="text-center">Crypt-FX permite que você investir seu dinheiro em algo que produz retornos elevados do que os juros auferidos a partir de seu banco local. Nossas relações de cooperação diárias com outros fundos rentáveis nos permite produzir altos lucros diários para os nossos clientes.</p>
+            <h3>Assine gratuitamente. Você só precisa de uma conta de e-moeda para começar!</h3>
+            <p class="justify">Se você estive pensando em tomar conta da sua situação financeira de uma vez por tudo o que poderia mudar sua vida para melhor, não procure mais, Crypt-FX. Parabéns! Ao escolher Crypto Negociações como seu parceiro de investimento on-line, você já está à frente de 90% da população. Crypt-FX tem um planos de investimento de longo prazo e confiável, segura e profissional, que garante grandes resultados para os nossos membros. O principal objectivo do nosso projecto de investimento consiste em oferecer a estabilidade, pagamentos atempados, e excelente serviço ao cliente. Nós não reivindicamos para oferecer-lhe as mais altas taxas de juros. Planejamos nossa carteira de investimentos para minimizar os riscos que estão sempre aparente na negociação. Por exemplo, a diversidade nosso investimento e utilizar várias estratégias de investimento. A diversificação no comércio é crucial, uma vez que não só reduz os riscos envolvidos no setor de comércio, mas também produz maiores e de longo prazo lucros para os investidores.</p>
+            <h3>Nós Oferecemos</h3>
+            <p class="justify">Crypt-FX oferece-lhe uma oportunidade única para investir seu dinheiro em um dos nossos planos de investimento on-line. Não deixe passar esta oportunidade. Nós somos comerciantes "reais" e investimos fundos dos nossos membros em investimentos rentáveis. Em suma, Crypto Negociações é sua porta de entrada para a liberdade e a estabilidade financeira.</p>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </section><!--/#about-us-->
+  <section id="bitcoin">
+    <div class="container">
+      <div class="heading wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+        <div class="row">
+          <div class="text-center col-sm-8 col-sm-offset-2">
+            <h2>O que é Bitcoin?</h2>
+            <p>Entender o Bitcoin é simples. Ele é uma moeda digital que permite reproduzir em pagamentos eletrônicos a eficiência dos pagamento com cédulas. Pagamentos com bitcoins são rápidos, baratos e sem intermediários. Além disso, eles podem ser feitos para qualquer pessoa, que esteja em qualquer lugar do planeta, sem limite mínimo ou máximo de valor.</p>
+          </div>
+        </div> 
+      </div>
+      <div class="text-center our-services">
+        <div class="row">
+          <div class="col-sm-3 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="650ms">
+            <div class="service-icon">
+              <i class="fa fa-usd"></i>
+            </div>
+            <div class="service-info">
+              <h3>Transparente</h3>
+            </div>
+          </div>
+          <div class="col-sm-3 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="750ms">
+            <div class="service-icon">
+              <i class="fa fa-credit-card"></i>
+            </div>
+            <div class="service-info">
+              <h3>Sem Limites</h3>
+            </div>
+          </div>
+          <div class="col-sm-3 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="850ms">
+            <div class="service-icon">
+              <i class="glyphicon glyphicon-stats"></i>
+            </div>
+            <div class="service-info">
+              <h3>Taxas Minúsculas</h3>
+            </div>
+          </div>
+          <div class="col-sm-3 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="750ms">
+            <div class="service-icon">
+              <i class="fa fa-key"></i>
+            </div>
+            <div class="service-info">
+              <h3>Ambiente Seguro SSL</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/#bitcoin-->
+  <!--plans -->
+  <section id="plans">
+    <div class="container">
+      <div class="row">
+        <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+          <h2>Nossos Planos</h2>
+          <p>Conheça os planos que preparamos para você!</p>
+        </div>
+      </div>
+      <div class="pricing-table">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="single-table wow flipInY" data-wow-duration="1000ms" data-wow-delay="300ms">
+              <h3>CRYPT-BRONZE</h3>
+              <div class="price">
+                25 <span>USD</span>                          
+              </div>
+              <ul>
+                <li>Você ganha 10 pts</li>
+              </ul>
+              <a href="#" class="btn btn-lg btn-primary">Adquirir Plano</a>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="single-table wow flipInY" data-wow-duration="1000ms" data-wow-delay="500ms">
+              <h3>CRYPT-PRATA</h3>
+              <div class="price">
+                75 <span>USD</span>                                
+              </div>
+              <ul>
+                <li>Você ganha 30 pts</li>
+              </ul>
+              <a href="#" class="btn btn-lg btn-primary">Adquirir Plano</a>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="single-table wow flipInY" data-wow-duration="1000ms" data-wow-delay="800ms">
+              <h3>CRYPT-OURO</h3>
+              <div class="price">
+                125 <span>USD</span>                                
+              </div>
+              <ul>
+                <li>Você ganha 50 pts</li>
+              </ul>
+              <a href="#" class="btn btn-lg btn-primary">Adquirir Plano</a>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="single-table wow flipInY" data-wow-duration="1000ms" data-wow-delay="1100ms">
+              <h3>CRYPT-ESMERALDA</h3>
+              <div class="price">
+                250 <span>USD</span>                    
+              </div>
+              <ul>
+                <li>Você ganha 100 pts</li>
+              </ul>
+              <a href="#" class="btn btn-lg btn-primary">Adquirir Plano</a>
+            </div>
+          </div>
+          <div class="col-sm-8 esmeralda">
+            <div class="col-sm-5">
+              <div class="single-table featured wow flipInY" data-wow-duration="1000ms" data-wow-delay="800ms">
+                <h3>CRYPT-DIMANTE</h3>
+                <div class="price">
+                  1250 <span>USD</span>                                
+                </div>
+                <ul>
+                  <li>Você ganha 500 pts</li>
+                </ul>
+                <a href="#" class="btn btn-lg btn-primary">Adquirir Plano</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!--/#plans-->
+
+  <section id="buy" class="parallax" ng-controller="comprarBitcoinsCtrl">
+    <div class="container">
+      <div class="row">
+        <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+          <h2 >{{comprar}} Bitcoins</h2>
+          <p class="text-buy">Por favor, preencha corretamente todos os campos.</p>
+          <div class="contact-form wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
+          <div class="row">
+            <div class="col-sm-12" >
+              <form id="main-buy-form" name="contatoForm" method="post" action="#">
+                <div class="row  wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input type="number" name="reais" class="form-control" placeholder="Valor em Reais" ng-required="true" autocomplete="off" ng-model="reais" ng-minlength="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input type="text" name="nome" class="form-control" placeholder="Nome" ng-required="true" autocomplete="off" ng-model="nome">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input type="number" name="cpf" class="form-control" placeholder="CPF(Somente Números)" ng-required="true" autocomplete="off" ng-model="cpf" ng-pattern="/^\d{11}$/">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input type="tel" id="telefone" name="telefone" class="form-control" placeholder="Telefone" ng-required="true" autocomplete="off" ng-model="telefone" ng-pattern="/^\(\d{2}\)\d{4,5}-\d{4}$/">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input type="email" name="email" class="form-control" placeholder="E-mail" ng-required="true" autocomplete="off" ng-model="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input type="text" name="wallet" class="form-control" placeholder="Wallet" autocomplete="off" ng-model="wallet" ng-required="true">
+                    </div>
+                  </div>      
+                </div>
+                <div class="checkbox text-left">
+                  <label><input type="checkbox" ng-model="termo" value="">Aceito os <a href="termo/termo.pdf" target="blank">Termos e Condições de Uso</a></label>
+                </div>
+                <div class="form-group">
+                  <button type="submit" ng-click="adicionarCompra()" ng-disabled="contatoForm.$invalid || !termo" class="btn-submit">Realizar Pagamento</button>
+                </div>
+              </form>
+
+
+              <!-- Mensagens de erro -->
+                <!-- Validando Bitcoins -->
+               <div class="alert alert-danger" ng-show="contatoForm.reais.$error.required && contatoForm.reais.$dirty">
+                Por favor, preencha o campo Reais!
+              </div>
+              
+                <!--/Validando Bitcoins -->
+                <!-- Validando Nome -->
+              <div ng-show="contatoForm.nome.$error.required && contatoForm.nome.$dirty" class="alert alert-danger">
+                Por favor, preencha o campo nome!
+              </div>
+              <!--/Validando Nome -->
+              <!-- Validando CPF -->
+              <div class="alert alert-danger" ng-show="contatoForm.cpf.$error.required && contatoForm.cpf.$dirty">
+                Por favor, preencha o campo CPF!
+              </div>
+              <div class="alert alert-danger" ng-show="contatoForm.cpf.$error.pattern">
+                O campo CPF deve ter somente números e 11 algarismos!.
+              </div>
+              <!--/Validando CPF -->
+              <!-- Validando Telefone -->
+              <div class="alert alert-danger" ng-show="contatoForm.telefone.$error.required && contatoForm.telefone.$dirty">
+                Por favor, preencha o campo telefone!
+              </div>
+              <div class="alert alert-danger" ng-show="contatoForm.telefone.$error.pattern">
+                O campo telefone deve ter o formato (DD)DDDDD-DDDD.
+              </div>
+              <!--/Validando Telefone -->
+              <!-- Validando E-mail -->
+              <div class="alert alert-danger" ng-show="contatoForm.email.$error.required && contatoForm.email.$dirty">
+                Por favor, preencha o campo E-mail!
+              </div>
+              <div class="alert alert-danger" ng-show="contatoForm.email.$error.pattern">
+                Preencha o campo E-mail corretamente.
+              </div>
+              <!--/Validando E-mail -->
+              <!-- Validando Wallet -->
+              <div class="alert alert-danger" ng-show="contatoForm.wallet.$error.required && contatoForm.wallet.$dirty">
+                Por favor, preencha o campo Wallet!
+              </div>
+              <!--/Validando Wallet -->
+              <!--/Mensagens de erro -->
+
+
+              <p ng-hide="contatoForm.reais.$error.required">Você está comprando BTC {{(reais / precoBitcoin.ticker.sell)*1.025}} por</p>
+              <h1 ng-hide="contatoForm.reais.$error.required">{{reais | currency}}</h1>  
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>              
+    </div>
+  </section><!--/#buy-->
+
+  <section id="contact" ng-controller="contatoCtrl">
+    <div id="contact-us" class="parallax">
+      <div class="container">
+        <div class="row">
+          <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <h2>Contato</h2>
+            <p>Em caso de dúvidas entre em contato conosco e responderemos o mais rápido possível.</p>
+          </div>
+        </div>
+        <div class="contact-form wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
+          <div class="row">
+            <div class="col-sm-6">
+              <form id="main-contact-form" name="formularioContato" method="post">
+                <div class="row  wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input type="text" name="nome" class="form-control" ng-required="true" placeholder="Nome" autocomplete="off" ng-model="contato.nome">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input type="email" name="email" class="form-control" ng-required="true" placeholder="E-mail" autocomplete="off" ng-model="contato.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" name="assunto" class="form-control" ng-required="true" placeholder="Assunto" autocomplete="off" ng-model="contato.assunto">
+                </div>
+                <div class="form-group">
+                  <textarea name="mensagem" class="form-control" rows="4" ng-required="true" placeholder="Mensagem" ng-model="contato.mensagem"></textarea>
+                </div>                        
+                <div class="form-group">
+                  <button type="submit" class="btn-submit" ng-click="enviaEmail()" ng-disabled="formularioContato.$invalid">Enviar</button>
+                </div>
+              </form>
+
+
+               <!-- Mensagens de erro -->
+                <!-- Validando Nome -->
+                <div ng-show="formularioContato.nome.$error.required && formularioContato.nome.$dirty" class="alert alert-danger">
+                  Por favor, preencha o campo Nome!
+                </div>
+                <!--/Validando Nome -->              
+                <!-- Validando E-mail -->
+                <div class="alert alert-danger" ng-show="formularioContato.email.$error.required && formularioContato.email.$dirty">
+                  Por favor, preencha o campo E-mail!
+                </div>
+                <div class="alert alert-danger" ng-show="formularioContato.email.$error.pattern">
+                  Preencha o campo E-mail corretamente.
+                </div>
+                <!--/Validando E-mail -->
+                <!-- Validando Assunto -->
+                <div ng-show="formularioContato.assunto.$error.required && formularioContato.assunto.$dirty" class="alert alert-danger">
+                  Por favor, preencha o campo Assunto!
+                </div>
+                <!--/Validando Assunto --> 
+                <!-- Validando Mensagem -->
+                <div ng-show="formularioContato.mensagem.$error.required && formularioContato.mensagem.$dirty" class="alert alert-danger">
+                  Por favor, preencha o campo Mensagem!
+                </div>
+                <!--/Validando Mensagem --> 
+              <!--/Mensagens de erro -->
+
+
+            </div>
+            <div class="col-sm-6">
+              <div class="contact-info wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+                <p>Caso queira entrar em contato conosco mais rapidamente, você pode optar por um dos meios abaixo:</p>
+                <ul class="address">
+                  <li><i class="fa fa-user"></i> <span> Proprietário: </span>JOSEPH TOMAS MILLER</li>
+                  <li><i class="fa fa-street-view"></i> <span> Proprietário Endereço: </span> 1 LUMLEY Street, Mayfair </li>
+                  <li><i class="fa fa-map-marker"></i> <span> proprietário Cidade: </span> LONDON </li>
+                  <li><i class="fa fa-envelope-square"></i> <span> Proprietário Código Postal: </span>W1K 6TT </li>
+                  <li><i class="fa fa-phone"></i> <span> Telefone: </span> 44,2036958855 </li>
+                  <li><i class="fa fa-envelope"></i> <span> E-mail:</span><a href="mailto:suporte@cript-fx.com"> suporte@cript-fx.com</a></li>
+                  
+                </ul>
+              </div>                            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>        
+  </section><!--/#contact-->
+  <footer id="footer">
+    <div class="footer-top wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+      <div class="container text-center">
+        <div class="social-icons">
+          <ul>
+            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li> 
+            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <p>&copy; 2016 CriptFX CO ,. Ltd</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/jquery.inview.min.js"></script>
+  <script type="text/javascript" src="js/wow.min.js"></script>
+  <script type="text/javascript" src="js/mousescroll.js"></script>
+  <script type="text/javascript" src="js/smoothscroll.js"></script>
+  <script type="text/javascript" src="js/jquery.countTo.js"></script>
+  <script type="text/javascript" src="js/lightbox.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+
+</body>
+</html>
